@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
+gem 'simple_form'
 
 
 group :development, :test do
