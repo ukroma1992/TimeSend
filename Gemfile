@@ -20,6 +20,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'validates_timeliness', '~> 4.0'
 
 
 group :development, :test do
