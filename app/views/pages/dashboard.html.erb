@@ -30,13 +30,13 @@
     <h3 class="text-center">Scheduled Posts</h3>
     <hr>
     <%= render @scheduled %>
-    <%= will_paginate @scheduled, :param_name => 'scheduled_page' %>
+    <%= will_paginate @scheduled, :param_name => 'scheduled_page', renderer: BootstrapPagination::Rails %>
   </div>
 <!-- History -->
   <div class="col-md-5">
     <h3 class="text-center">Post History</h3>
     <hr>
     <%= render @history %>
-    <%= will_paginate @history, :param_name => 'history_page' %>
+    <%= will_paginate @history, :param_name => 'history_page', renderer: BootstrapPagination::Rails %>
   </div>
 </div>

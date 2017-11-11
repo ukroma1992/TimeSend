@@ -30,6 +30,7 @@ gem 'koala'
 gem 'delayed_job_active_record'
 gem 'delayed-web'
 gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 
 group :development, :test do
