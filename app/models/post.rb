@@ -6,6 +6,31 @@ class Post < ApplicationRecord
   validates_length_of :content, maximum: 140, message: "Less than 140 please"
   validates_datetime :scheduled_at, :on => :create, :on_or_after => Time.zone.now
 
+  after_create :schedule
+
+  def schedule
+    begin
+      ScheduleJob.set(wait_until: scheduled_at).perform_later(self)
+      self.update_attributes(state: "scheduled")
+    rescue Exception => e
+      self.update_attributes(state: "scheduling error", error: e.message)
+    end
+  end
+
+  def display
+    begin
+      if facebook == true
+        to_facebook
+      end
+      if twitter == true
+        to_twitter
+      end
+      self.update_attributes(state: "posted")
+    rescue Exception => e
+      self.update_attributes(state: "posting error", error: e.message)
+    end
+  end
+
   def to_twitter
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["TWITTER_KEY"]
