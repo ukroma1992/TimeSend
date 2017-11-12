@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'dashboard', to: "pages#dashboard"
 
-  resources :posts
+  resources :posts do
+    member do
+      put :cancel
+    end
+  end
 
   authenticated :user, -> user { user.admin? } do
-    mount Delayed::Web::Engine, at: '/jobs'  
+    mount Delayed::Web::Engine, at: '/jobs'
   end
 
 
