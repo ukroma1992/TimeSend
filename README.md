@@ -1,24 +1,20 @@
-# README
+# Timesend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Приложение для отправки постов в Twitter и Facebook в назначенное вами время.
+Вы можете запланировать свои посты, а приложение автоматически отправит их когда будет нужно.
 
 Things you may want to cover:
 
-* Ruby version
+* Версия Ruby 2.4.2
 
-* System dependencies
+* Rails 5.1.4
 
-* Configuration
+* База данных: PostgreSQL 9.5.9
 
-* Database creation
+## Для разворачивания приложения вам нужно: 
 
-* Database initialization
+* Клонировать репозиторий и сделайть bundle exec rake db:migrate
 
-* How to run the test suite
+* Для запуска воркера выполните rake jobs:work
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Версия загруженная на Heroku [https://timesend.herokuapp.com]
